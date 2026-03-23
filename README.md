@@ -419,4 +419,5 @@ fab fa-whatsapp    → WhatsApp
 
 *Portfolio de Waounwa Chris Andy Yoan — Abidjan · 2025*
 #   P o r t f o l i o - P e r s o  
+ #   P o r t f o l i o - P e r s o  
  

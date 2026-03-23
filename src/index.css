@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0A0E1A;
+  color: #F8FAFF;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+}
+a, button { -webkit-tap-highlight-color: transparent; }
+img { max-width: 100%; display: block; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0A0E1A; }
+::-webkit-scrollbar-thumb { background: #4F8EF7; border-radius: 99px; }
+
+/* ═══════════════════════
+   CURSEUR CUSTOM
+═══════════════════════ */
+.cursor-dot {
+  position: fixed; z-index: 99999;
+  width: 8px; height: 8px;
+  background: #4F8EF7;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform .1s ease;
+}
+.cursor-ring {
+  position: fixed; z-index: 99998;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(79,142,247,.5);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform .12s ease, width .2s ease, height .2s ease, border-color .2s ease;
+}
+.cursor-ring.hover {
+  width: 56px; height: 56px;
+  border-color: rgba(79,142,247,.9);
+  background: rgba(79,142,247,.06);
+}
+@media (max-width: 768px) {
+  body { cursor: default; }
+  .cursor-dot, .cursor-ring { display: none; }
+}
+
+/* ═══════════════════════
+   CANVAS PARTICULES
+═══════════════════════ */
+#particles-canvas {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+}
+
+/* ═══════════════════════
+   SCANLINE EFFECT
+═══════════════════════ */
+.scanline {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(transparent 50%, rgba(0,0,0,.03) 50%);
+  background-size: 100% 4px;
+  opacity: .4;
+}
+
+/* ═══════════════════════
+   SCROLL REVEAL
+═══════════════════════ */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+.reveal-d5 { transition-delay: .40s; }
+
+/* ═══════════════════════
+   TYPING CURSOR
+═══════════════════════ */
+.typing-cursor::after {
+  content: '|';
+  color: #4F8EF7;
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}
+
+/* ═══════════════════════
+   GLOW TEXT
+═══════════════════════ */
+.glow-text {
+  text-shadow: 0 0 30px rgba(79,142,247,.5), 0 0 60px rgba(79,142,247,.2);
+}
+
+/* ═══════════════════════
+   GRID TECH BG
+═══════════════════════ */
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(79,142,247,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,142,247,.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ═══════════════════════
+   CARD GLASS
+═══════════════════════ */
+.glass {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(79,142,247,.12);
+  backdrop-filter: blur(12px);
+}
+.glass:hover {
+  background: rgba(79,142,247,.06);
+  border-color: rgba(79,142,247,.3);
+}
+
+/* ═══════════════════════
+   SKILL BAR
+═══════════════════════ */
+.skill-bar {
+  height: 4px;
+  background: rgba(79,142,247,.15);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4F8EF7, #93C5FD);
+  border-radius: 99px;
+  width: 0%;
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══════════════════════
+   NAV
+═══════════════════════ */
+.nav-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(79,142,247,.3);
+  transition: all .3s ease;
+}
+.nav-dot.active {
+  background: #4F8EF7;
+  box-shadow: 0 0 10px rgba(79,142,247,.6);
+}
+
+/* ═══════════════════════
+   CODE TAG
+═══════════════════════ */
+.code-tag {
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(79,142,247,.5);
+  font-size: .75rem;
+  user-select: none;
+}
+
+/* ═══════════════════════
+   SECTION TITLE
+═══════════════════════ */
+.section-num {
+  font-family: 'JetBrains Mono', monospace;
+  color: #4F8EF7;
+  font-size: .85rem;
+  letter-spacing: .15em;
+}
+
+/* ═══════════════════════
+   COUNTER ANIMATION
+═══════════════════════ */
+.counter { display: inline-block; }
+
+/* ═══════════════════════
+   RESPONSIVE HELPERS
+═══════════════════════ */
+.section-pad { padding: clamp(60px, 10vw, 120px) 0; }
