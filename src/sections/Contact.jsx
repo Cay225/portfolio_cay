@@ -67,7 +67,7 @@ export default function Contact() {
               <span className="text-blue">{"</"}</span>
               portfolio
               <span className="text-blue">{">"}</span>
-              {' '}— Fait avec ❤️ depuis Abidjan
+              {' '}
             </p>
           </div>
 

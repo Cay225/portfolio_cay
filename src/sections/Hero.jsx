@@ -60,7 +60,7 @@ export default function Hero() {
             <h1 className="font-syne font-black leading-tight mb-4 animate-fade-2"
               style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)' }}>
               Je suis{' '}
-              <span className="text-blue glow-text">Chris Andy</span>
+              <span className="text-blue glow-text">Chris Andy Yoan Waounwa</span>
             </h1>
 
             {/* Typing role */}
