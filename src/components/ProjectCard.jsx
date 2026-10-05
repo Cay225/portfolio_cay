@@ -17,7 +17,7 @@ export default function ProjectCard({ project, large = false }) {
       <div className={`relative ${large ? 'px-5 pt-5 sm:px-10 sm:pt-10' : 'px-5 pt-5 sm:px-8 sm:pt-8'}`}>
         <BrowserFrame
           src={project.image}
-          alt={`Capture d'écran — ${project.name}`}
+          alt={`Capture d'écran de ${project.name}`}
           className="translate-y-2 transition-transform duration-700 ease-out group-hover:translate-y-0"
           imgClassName="transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />

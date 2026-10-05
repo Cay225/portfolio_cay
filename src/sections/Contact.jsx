@@ -12,7 +12,7 @@ export default function Contact() {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
+    const body = encodeURIComponent(`${form.message}\n\n${form.name} (${form.email})`)
     const subject = encodeURIComponent(form.subject || 'Contact depuis le portfolio')
     window.location.href = `mailto:${INFO.email}?subject=${subject}&body=${body}`
     setSent(true)
@@ -67,7 +67,7 @@ export default function Contact() {
                 required
                 value={form.message}
                 onChange={onChange}
-                placeholder="Parlez-moi de votre projet…"
+                placeholder="Parlez-moi de votre projet..."
                 className="w-full resize-y rounded-2xl border border-line bg-bg px-4 py-3 text-fg placeholder:text-faint transition-colors focus:border-accent focus:outline-none"
               />
             </div>

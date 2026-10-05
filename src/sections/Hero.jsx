@@ -18,12 +18,15 @@ export default function Hero() {
             {INFO.availability}
           </div>
 
-          <h1 className="mt-7 font-display text-[2.75rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl xl:text-[5.6rem]">
-            {INFO.headline}{' '}
-            <span className="italic-accent">{INFO.headlineAccent}</span>
+          <h1 className="mt-7 font-display text-[2.6rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl xl:text-[5.4rem]">
+            {INFO.name}
           </h1>
+          <p className="mt-5 font-display text-xl font-medium tracking-[-0.01em] text-fg/90 md:text-2xl">
+            <span className="italic-accent text-[1.35em]">{INFO.title}</span>
+            <span className="text-muted">, fondateur de CayWeb Solutions</span>
+          </p>
 
-          <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-muted md:text-lg">{INFO.intro}</p>
+          <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-muted md:text-lg">{INFO.intro}</p>
 
           <div className="mt-9 flex flex-wrap gap-3">
             <Link to="/projets" className="btn-primary group">
@@ -41,16 +44,16 @@ export default function Hero() {
             <div className="overflow-hidden rounded-[28px] border border-line-strong bg-surface p-2">
               <img
                 src={INFO.photo}
-                alt={`Portrait de ${INFO.fullname}`}
+                alt={`Portrait de ${INFO.name}`}
                 className="aspect-[4/5] w-full rounded-[22px] object-cover"
               />
             </div>
-            <figcaption className="absolute -bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-line bg-bg/85 px-4 py-3 backdrop-blur-xl">
+            <figcaption className="mt-3 flex items-center justify-between rounded-2xl border border-line bg-surface px-4 py-3">
               <div>
-                <p className="text-sm font-medium">{INFO.fullname}</p>
+                <p className="text-sm font-medium">{INFO.name}</p>
                 <p className="font-mono text-[11px] text-faint">{INFO.location}</p>
               </div>
-              <span className="font-serif text-2xl italic text-accent">Cay</span>
+              <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
             </figcaption>
           </figure>
         </Reveal>

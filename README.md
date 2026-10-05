@@ -1,4 +1,4 @@
-# Portfolio — Chris Andy Yoan (Cay)
+# Portfolio de Waounwa Chris Andy Yoan
 
 Développeur Full-Stack · Abidjan. React + Vite + Tailwind CSS, déployé sur Vercel.
 
@@ -34,6 +34,6 @@ dans `public/projects/` (format `.webp`, 16:9 de préférence) et renseigner `im
 src/
   data/content.js     ← tout le contenu
   pages/              ← Home, Projects, ProjectDetail, AboutPage, JourneyPage, ContactPage
-  sections/           ← blocs de page (Hero, SelectedWork, Expertise, Journey…)
-  components/         ← Navbar, Footer, ProjectCard, BrowserFrame, Reveal, Icons…
+  sections/           ← blocs de page (Hero, SelectedWork, Expertise, Journey...)
+  components/         ← Navbar, Footer, ProjectCard, BrowserFrame, Reveal, Icons...
 ```

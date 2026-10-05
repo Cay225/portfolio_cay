@@ -12,7 +12,7 @@ export default function Projects() {
         eyebrow="Projets"
         title="Ce que j'ai"
         accent="construit."
-        intro="Applications, plateformes et sites — conçus, développés et testés de bout en bout."
+        intro="Applications, plateformes et sites, conçus, développés et testés de bout en bout."
       />
       <section className="pb-4">
         <div className="shell grid gap-5 md:grid-cols-2">

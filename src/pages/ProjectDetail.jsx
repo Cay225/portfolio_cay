@@ -33,8 +33,15 @@ export default function ProjectDetail() {
           </Link>
 
           <Reveal className="mt-10">
-            <span className="eyebrow">{p.category}</span>
-            <h1 className="mt-5 font-display text-5xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-7xl md:text-8xl">
+            <div className="flex items-center gap-4">
+              {p.logo && (
+                <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-2xl border border-line bg-white p-2">
+                  <img src={p.logo} alt="" className="h-full w-full object-contain" />
+                </span>
+              )}
+              <span className="eyebrow">{p.category}</span>
+            </div>
+            <h1 className="mt-6 font-display text-5xl font-semibold leading-[0.95] tracking-[-0.045em] sm:text-7xl md:text-8xl">
               {p.name}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">{p.description}</p>
@@ -52,7 +59,7 @@ export default function ProjectDetail() {
               <div className="mt-2 flex flex-wrap gap-4 text-[15px]">
                 {p.link && <a href={p.link} target="_blank" rel="noreferrer" className="link-u inline-flex items-center gap-1">Site en ligne <ArrowUpRight width={14} height={14} /></a>}
                 {p.github && <a href={p.github} target="_blank" rel="noreferrer" className="link-u inline-flex items-center gap-1">Code <ArrowUpRight width={14} height={14} /></a>}
-                {!p.link && !p.github && <span className="text-faint">Démo sur demande</span>}
+                {!p.link && !p.github && <span className="text-faint">{p.linkLabel || 'Démo sur demande'}</span>}
               </div>
             </div>
           </Reveal>
@@ -61,7 +68,7 @@ export default function ProjectDetail() {
 
       <section className="shell">
         <Reveal>
-          <BrowserFrame src={p.image} alt={`Capture d'écran — ${p.name}`} eager />
+          <BrowserFrame src={p.image} alt={`Capture d'écran de ${p.name}`} eager />
         </Reveal>
       </section>
 
@@ -103,6 +110,29 @@ export default function ProjectDetail() {
           )}
         </div>
       </section>
+
+      {p.gallery?.length > 0 && (
+        <section className="shell pb-20 md:pb-28">
+          <Reveal>
+            <h2 className="font-display text-2xl font-semibold tracking-[-0.02em] md:text-3xl">En images</h2>
+          </Reveal>
+          <div className="mt-8 columns-1 gap-5 md:columns-2">
+            {p.gallery.map((g) => (
+              <Reveal as="figure" key={g.src} className="mb-5 break-inside-avoid">
+                <div className={`card overflow-hidden ${g.portrait ? 'flex justify-center bg-surface-2 p-6' : ''}`}>
+                  <img
+                    src={g.src}
+                    alt={`${p.name} : ${g.caption}`}
+                    loading="lazy"
+                    className={g.portrait ? 'max-h-[560px] w-auto rounded-2xl border border-line' : 'w-full'}
+                  />
+                </div>
+                <figcaption className="mt-3 px-1 font-mono text-[12px] text-faint">{g.caption}</figcaption>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-line">
         <Link to={`/projets/${next.id}`} className="shell group flex items-center justify-between gap-6 py-14 md:py-20">

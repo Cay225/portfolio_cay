@@ -37,9 +37,8 @@ export default function Navbar() {
             : 'border-transparent bg-transparent'
         }`}
       >
-        <Link to="/" className="flex items-center gap-2 font-display text-[17px] font-semibold tracking-tight">
-          <span className="font-serif text-2xl italic leading-none text-fg">c</span>
-          <span>{INFO.name}</span>
+        <Link to="/" className="font-display text-[15px] font-semibold tracking-tight sm:text-[17px]">
+          {INFO.name}
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">

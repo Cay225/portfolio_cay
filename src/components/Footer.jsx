@@ -30,8 +30,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="shell flex flex-col gap-1 border-t border-line py-6 font-mono text-[11.5px] text-faint sm:flex-row sm:justify-between">
-        <span>© {new Date().getFullYear()} {INFO.fullname}</span>
-        <span>Conçu & développé par {INFO.shortName}</span>
+        <span>© {new Date().getFullYear()} {INFO.name}</span>
+        <span>Conçu et développé par moi-même</span>
       </div>
     </footer>
   )
