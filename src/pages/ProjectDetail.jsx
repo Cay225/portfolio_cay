@@ -45,6 +45,12 @@ export default function ProjectDetail() {
               {p.name}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted md:text-xl">{p.description}</p>
+            {p.link && (
+              <a href={p.link} target="_blank" rel="noreferrer" className="btn-primary group mt-8">
+                Visiter le site
+                <ArrowUpRight className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            )}
           </Reveal>
 
           <Reveal delay={100} className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">

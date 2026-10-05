@@ -178,8 +178,8 @@ export const PROJECTS = [
     role: 'Identité, design, développement & déploiement',
     image: '/projects/cayweb/home.webp',
     accent: '#1E6FD9',
-    link: null,
-    linkLabel: 'Mise en ligne en cours',
+    link: 'https://caywebsolutions.com/',
+    linkLabel: null,
     github: null,
     gallery: [
       { src: '/projects/cayweb/services.webp', caption: 'Page Services' },
