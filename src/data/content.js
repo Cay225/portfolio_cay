@@ -9,7 +9,7 @@ export const INFO = {
   email: 'cayyoan7@gmail.com',
   phone: '+225 07 04 20 08 50',
   whatsapp: 'https://wa.me/2250704200850',
-  github: 'https://github.com/Chrisandy225',
+  github: 'https://github.com/Cay225',
   linkedin: null, // mets l'URL de ton profil LinkedIn ici
   photo: '/chris-portrait.jpg',
   photoAbout: '/chris-graduation.jpg',
@@ -227,7 +227,7 @@ export const OTHER_PROJECTS = [
     description: "Automatisation des tests de bout en bout d'une application web. Projet de fin d'études BTS.",
     stack: ['Playwright', 'TypeScript', 'CI/CD'],
     link: null,
-    github: 'https://github.com/Chrisandy225',
+    github: 'https://github.com/Cay225',
   },
 ]
 
