@@ -1,47 +1,33 @@
-import { useEffect } from 'react'
-import { useScrollReveal } from './hooks/useScrollReveal'
-
-import Cursor     from './components/Cursor'
-import Particles  from './components/Particles'
-import Navbar     from './components/Navbar'
-
-import Hero       from './sections/Hero'
-import About      from './sections/About'
-import Skills     from './sections/Skills'
-import Projects   from './sections/Projects'
-import Experience from './sections/Experience'
-import Contact    from './sections/Contact'
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import ProjectDetail from './pages/ProjectDetail'
+import AboutPage from './pages/AboutPage'
+import JourneyPage from './pages/JourneyPage'
+import ContactPage from './pages/ContactPage'
+import NotFound from './pages/NotFound'
 
 export default function App() {
-  useScrollReveal()
-
   return (
-    <>
-      {/* Effets globaux */}
-      <Cursor />
-      <Particles />
-      <div className="scanline" />
-      <div className="tech-grid fixed inset-0 z-0 pointer-events-none" />
-
-      {/* Navigation */}
+    <div className="relative min-h-screen">
+      <div aria-hidden className="grain fixed inset-0 z-[60]" />
+      <ScrollToTop />
       <Navbar />
-
-      {/* Contenu */}
-      <main className="relative z-10">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Contact />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projets" element={<Projects />} />
+          <Route path="/projets/:id" element={<ProjectDetail />} />
+          <Route path="/a-propos" element={<AboutPage />} />
+          <Route path="/parcours" element={<JourneyPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </main>
-
-      {/* Footer minimal */}
-      <footer className="relative z-10 border-t border-blue/10 py-6 px-5 text-center">
-        <p className="font-mono text-text-m text-xs">
-          © 2025 Chris Andy · Tous droits réservés
-        </p>
-      </footer>
-    </>
+      <Footer />
+    </div>
   )
 }

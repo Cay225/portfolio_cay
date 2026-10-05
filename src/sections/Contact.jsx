@@ -1,78 +1,103 @@
-import { INFO } from '../data/portfolio'
-
-const LINKS = [
-  { icon: 'fab fa-github',   label: 'GitHub',   value: 'Chrisandy225',       href: INFO.github,              color: '#F8FAFF' },
-  { icon: 'fas fa-envelope', label: 'Email',    value: INFO.email,            href: `mailto:${INFO.email}`,   color: '#4F8EF7' },
-  { icon: 'fas fa-phone',    label: 'Téléphone',value: INFO.phone,            href: `tel:${INFO.phone}`,      color: '#10B981' },
-  { icon: 'fab fa-whatsapp', label: 'WhatsApp', value: 'Envoyer un message', href: `https://wa.me/2250704200850?text=Bonjour%20Chris%2C%20j%27ai%20vu%20ton%20portfolio%20et%20je%20voudrais%20te%20contacter.`, color: '#25D366' },
-]
+import { useState } from 'react'
+import { INFO } from '../data/content'
+import Reveal from '../components/Reveal'
+import CopyEmail from '../components/CopyEmail'
+import { ArrowUpRight, Github, Linkedin, Whatsapp } from '../components/Icons'
 
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [sent, setSent] = useState(false)
+
+  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`)
+    const subject = encodeURIComponent(form.subject || 'Contact depuis le portfolio')
+    window.location.href = `mailto:${INFO.email}?subject=${subject}&body=${body}`
+    setSent(true)
+  }
+
+  const channels = [
+    { label: 'WhatsApp', value: INFO.phone, href: INFO.whatsapp, Icon: Whatsapp },
+    { label: 'GitHub', value: INFO.github.replace('https://', ''), href: INFO.github, Icon: Github },
+    INFO.linkedin && { label: 'LinkedIn', value: 'Voir le profil', href: INFO.linkedin, Icon: Linkedin },
+  ].filter(Boolean)
+
   return (
-    <section id="contact" className="section-pad px-5 sm:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section className="pb-20 md:pb-28">
+      <div className="shell grid gap-10 lg:grid-cols-12 lg:gap-14">
+        <Reveal className="space-y-4 lg:col-span-5">
+          <div className="card p-6">
+            <p className="font-mono text-[12px] uppercase tracking-[0.14em] text-faint">Email</p>
+            <CopyEmail email={INFO.email} className="mt-4 w-full justify-start" />
+          </div>
+          {channels.map(({ label, value, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="card group flex items-center gap-4 p-6 transition-colors hover:border-line-strong"
+            >
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-line text-muted group-hover:text-fg">
+                <Icon />
+              </span>
+              <span className="flex-1">
+                <span className="block font-mono text-[12px] uppercase tracking-[0.14em] text-faint">{label}</span>
+                <span className="mt-0.5 block">{value}</span>
+              </span>
+              <ArrowUpRight className="text-faint transition-colors group-hover:text-fg" />
+            </a>
+          ))}
+          <p className="px-1 pt-2 text-sm text-faint">{INFO.location} · GMT</p>
+        </Reveal>
 
-        <div className="text-center mb-14 reveal">
-          <div className="section-num mb-3">05. Contact</div>
-          <h2 className="font-syne font-black text-light mb-4"
-            style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}>
-            Travaillons <span className="text-blue">ensemble</span>
-          </h2>
-          <p className="text-text-m text-base max-w-md mx-auto leading-relaxed">
-            Disponible pour des projets freelance, des opportunités de stage ou des collaborations.
-          </p>
-        </div>
-
-        <div className="max-w-2xl mx-auto">
-
-          {/* Availability badge */}
-          <div className="reveal flex justify-center mb-10">
-            <div className="flex items-center gap-2 glass rounded-full px-5 py-2.5">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="font-mono text-sm text-green-400">Disponible pour de nouveaux projets</span>
+        <Reveal delay={120} className="lg:col-span-7">
+          <form onSubmit={onSubmit} className="card grid gap-5 p-6 sm:grid-cols-2 sm:p-8">
+            <Field label="Nom" name="name" value={form.name} onChange={onChange} autoComplete="name" />
+            <Field label="Email" name="email" type="email" value={form.email} onChange={onChange} autoComplete="email" />
+            <Field label="Sujet" name="subject" value={form.subject} onChange={onChange} full required={false} />
+            <div className="sm:col-span-2">
+              <label htmlFor="message" className="mb-2 block text-sm text-muted">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                required
+                value={form.message}
+                onChange={onChange}
+                placeholder="Parlez-moi de votre projet…"
+                className="w-full resize-y rounded-2xl border border-line bg-bg px-4 py-3 text-fg placeholder:text-faint transition-colors focus:border-accent focus:outline-none"
+              />
             </div>
-          </div>
-
-          {/* Liens */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-            {LINKS.map(({ icon, label, value, href, color }, i) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer"
-                className={`reveal reveal-d${i + 1} glass rounded-2xl p-5 no-underline group
-                  flex items-center gap-4
-                  transition-all duration-300 hover:-translate-y-1`}
-                style={{ '--hover-color': color }}>
-
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center text-lg shrink-0
-                  transition-all duration-200 group-hover:scale-110"
-                  style={{ background: color + '20', border: `1px solid ${color}40`, color }}>
-                  <i className={icon} />
-                </div>
-
-                <div>
-                  <p className="text-text-m text-xs mb-0.5 font-mono">{label}</p>
-                  <p className="text-light text-sm font-medium group-hover:text-blue transition-colors">
-                    {value}
-                  </p>
-                </div>
-
-                <i className="fas fa-arrow-right text-text-m text-xs ml-auto
-                  transition-all duration-200 group-hover:text-blue group-hover:translate-x-1" />
-              </a>
-            ))}
-          </div>
-
-          {/* Footer message */}
-          <div className="reveal text-center">
-            <p className="font-mono text-text-m text-sm">
-              <span className="text-blue">{"</"}</span>
-              portfolio
-              <span className="text-blue">{">"}</span>
-              {' '}
-            </p>
-          </div>
-
-        </div>
+            <div className="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-faint">
+                {sent ? 'Votre messagerie va s\'ouvrir pour finaliser l\'envoi.' : 'Réponse sous 24 à 48 h.'}
+              </p>
+              <button type="submit" className="btn-primary">Envoyer le message</button>
+            </div>
+          </form>
+        </Reveal>
       </div>
     </section>
+  )
+}
+
+function Field({ label, name, type = 'text', value, onChange, full, required = true, autoComplete }) {
+  return (
+    <div className={full ? 'sm:col-span-2' : ''}>
+      <label htmlFor={name} className="mb-2 block text-sm text-muted">{label}</label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required={required}
+        value={value}
+        onChange={onChange}
+        autoComplete={autoComplete}
+        className="w-full rounded-2xl border border-line bg-bg px-4 py-3 text-fg transition-colors focus:border-accent focus:outline-none"
+      />
+    </div>
   )
 }
