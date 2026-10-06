@@ -12,7 +12,6 @@ export const INFO = {
   github: 'https://github.com/Cay225',
   linkedin: null, // mets l'URL de ton profil LinkedIn ici
   photo: '/chris-portrait.jpg',
-  photoAbout: '/chris-graduation.jpg',
   availability: 'Disponible pour un poste ou une mission',
   intro:
     "Je développe des applications web complètes avec React, FastAPI et PostgreSQL. J'ai commencé par le test automatisé : je construis des produits fiables, pensés pour être utilisés tous les jours.",
@@ -54,6 +53,12 @@ export const EXPERTISE = [
     title: 'Données',
     desc: 'Modélisation et persistance des données, du schéma relationnel à l\'isolation entre clients.',
     tools: ['PostgreSQL', 'Prisma', 'Supabase', 'MySQL', 'MongoDB'],
+  },
+  {
+    id: 'branding',
+    title: 'Identité visuelle',
+    desc: 'Logos, chartes graphiques et affiches pour donner une image claire et cohérente à une marque.',
+    tools: ['Logo', 'Charte graphique', 'Affiches', 'Figma'],
   },
   {
     id: 'design',
@@ -238,9 +243,10 @@ export const EXPERIENCE = [
     period: '2025 à aujourd\'hui',
     tag: 'Entreprise',
     bullets: [
-      'Création d\'une entreprise de solutions digitales pour les PME de Côte d\'Ivoire',
+      'Création d\'une structure de solutions digitales : sites, applications web et identité visuelle',
       'Conception et développement du SaaS CayFlow Manager et de la plateforme Proximéo',
       'Réalisation de sites pour des clients (Reflection Agency, WideViTech)',
+      'Branding : logos, chartes graphiques et affiches',
     ],
   },
   {

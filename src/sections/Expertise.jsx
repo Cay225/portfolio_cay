@@ -2,10 +2,11 @@ import { EXPERTISE } from '../data/content'
 import Reveal from '../components/Reveal'
 
 const SPAN = {
-  front: 'md:col-span-3',
-  back: 'md:col-span-3',
-  qa: 'md:col-span-6 lg:col-span-2',
+  front: 'md:col-span-3 lg:col-span-2',
+  back: 'md:col-span-3 lg:col-span-2',
+  qa: 'md:col-span-3 lg:col-span-2',
   data: 'md:col-span-3 lg:col-span-2',
+  branding: 'md:col-span-3 lg:col-span-2',
   design: 'md:col-span-3 lg:col-span-2',
 }
 
