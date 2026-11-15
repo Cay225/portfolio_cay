@@ -5,7 +5,7 @@ import Reveal from '../components/Reveal'
 import { ArrowRight } from '../components/Icons'
 
 export default function SelectedWork() {
-  const [first, ...rest] = PROJECTS
+  const [first, ...rest] = PROJECTS.slice(0, 5)
   return (
     <section className="py-20 md:py-28">
       <div className="shell">

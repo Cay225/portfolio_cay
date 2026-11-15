@@ -17,7 +17,11 @@ export default function Projects() {
       <section className="pb-4">
         <div className="shell grid gap-5 md:grid-cols-2">
           {PROJECTS.map((p, i) => (
-            <Reveal key={p.id} delay={i === 0 ? 0 : (i % 2) * 100} className={i === 0 ? 'md:col-span-2' : ''}>
+            <Reveal
+              key={p.id}
+              delay={i === 0 ? 0 : (i % 2) * 100}
+              className={i === 0 || (i === PROJECTS.length - 1 && PROJECTS.length % 2 === 0) ? 'md:col-span-2' : ''}
+            >
               <ProjectCard project={p} large={i === 0} />
             </Reveal>
           ))}

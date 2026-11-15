@@ -36,6 +36,9 @@ export default function Hero() {
             <Link to="/contact" className="btn-ghost">
               Me contacter
             </Link>
+            <a href={INFO.github} target="_blank" rel="noreferrer" className="btn-ghost">
+              GitHub
+            </a>
           </div>
         </Reveal>
 
