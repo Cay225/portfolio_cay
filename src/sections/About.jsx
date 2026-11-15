@@ -14,21 +14,24 @@ export default function About() {
 
         <Reveal delay={120} className="space-y-6 text-lg leading-relaxed text-muted md:col-span-7">
           <p className="font-display text-2xl font-medium leading-snug tracking-[-0.02em] text-fg md:text-3xl">
-            Développeur full-stack en début de carrière,{' '}
-            <span className="italic-accent">avec un vrai goût pour le travail bien fini.</span>
+            Je suis développeur Full-Stack{' '}
+            <span className="italic-accent">et étudiant en Master 1 MBDS à l'ESATIC.</span>
           </p>
           <p>
-            J'ai commencé par le frontend avec React et Tailwind CSS, puis un stage en automatisation de tests chez
-            Overnetflow m'a appris la rigueur : Playwright, CI/CD, cas limites.
+            J'ai découvert le développement web par le frontend, avec React et Tailwind CSS. Puis, mon expérience chez
+            Overnetflow m'a amené à travailler sur l'automatisation des tests avec Playwright et Jenkins. C'est là que
+            j'ai appris à accorder autant d'importance à ce qui se passe derrière une fonctionnalité qu'à ce que
+            l'utilisateur voit à l'écran.
           </p>
           <p>
-            Ma Licence DASI à l'ESATIC m'a ensuite amené vers le backend et la conception : Python, FastAPI, UML.
+            Avec le temps, je me suis davantage tourné vers le backend, les API et la conception d'applications,
+            notamment avec Python et FastAPI.
           </p>
           <p>
-            En 2025, j'ai lancé CayWeb Solutions. J'y réalise des sites et des applications web, mais aussi de
-            l'identité visuelle : logos, chartes graphiques, affiches.
+            En parallèle, j'ai créé CayWeb Solutions en 2025. C'est à travers cette activité que je développe mes
+            propres projets et accompagne des clients dans leurs besoins numériques, du site web à l'application, en
+            passant par l'identité visuelle.
           </p>
-          <p>Aujourd'hui, je cherche à progresser au sein d'une équipe tout en continuant à livrer mes propres projets.</p>
         </Reveal>
       </div>
     </section>

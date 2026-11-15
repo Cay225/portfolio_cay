@@ -415,6 +415,13 @@ export const EXPERIENCE = [
 
 export const EDUCATION = [
   {
+    title: 'Master 1 MBDS',
+    org: 'ESATIC',
+    period: '2026 à 2027',
+    tag: 'En cours',
+    bullets: [],
+  },
+  {
     title: 'Licence DASI',
     org: 'ESATIC',
     period: '2025 à 2026',
